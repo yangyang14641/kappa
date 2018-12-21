@@ -105,7 +105,7 @@ my %packages = (  #  version   default install priority      function
 #    "blas"       => [ "3.7.1",  'on' ,  'off', $priority++,  \&install_blas ],
 #    "clapack"    => [ "",       'off',  'off', $priority++,  \&install_clapack ],
 #    "lapack"     => [ "3.0.3",  'off',  'off', $priority++,  \&install_lapack ],
-    "lapack"     => [ "3.7.1",  'on' ,  'off', $priority++,  \&install_lapack ],
+	#    "lapack"     => [ "3.7.1",  'on' ,  'off', $priority++,  \&install_lapack ],
 #    "log4cpp"    => [ "0.3.4b", 'off',  'off', $priority++,  sub { install_gnu("log4cpp") } ],
 #    "zlib"       => [ "1.2.3",  'off',  'off', $priority++,  sub { install_gnu("zlib") } ],
 #    "cppunit"    => [ "1.10.2", 'off',  'off', $priority++,  sub { install_gnu("cppunit") } ],
@@ -141,7 +141,7 @@ my %packages = (  #  version   default install priority      function
 #    "cgnstools"  => [ "2-5-4",  'off',  'off', $priority++,  \&install_cgnstools ],
 #    "google-perftools" => [ "0.93",'off','off', $priority++, \&install_google_perftools ],
      "yaml-cpp"   => [ ""          ,      'on' ,  'off', $priority++,  \&install_yamlcpp ],
-     "OpenBLAS"   => [ "0.2.20"    ,      'on' ,  'off', $priority++,  \&install_openblas ],
+     #     "OpenBLAS"   => [ "0.2.20"    ,      'on' ,  'off', $priority++,  \&install_openblas ],
      "armadillo"  => [ "8.100.1"   ,      'on' ,  'off', $priority++,  \&install_armadillo ],
 );
 
@@ -765,7 +765,7 @@ sub install_openblas() {
                             -D BLAS_LIBRARY:FILEPATH=$opt_install_dir/lib    \\
                             -D LAPACK_LIBRARY:FILEPATH=$opt_install_dir/lib  \\
                             -D BUILD_SHARED_LIBS:BOOL=ON                     \\
-                             .                                               \\");
+                             .                                               ");
 
   run_command_or_die("make $opt_makeopts");
   run_command_or_die("make install");
